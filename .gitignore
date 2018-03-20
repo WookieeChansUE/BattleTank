@@ -77,3 +77,5 @@ Content/KiteDemo/*
 # Cache files for the editor to use
 DerivedDataCache/*
 Content/BattleGroundV2.umap
+*.umap
+*.umap
