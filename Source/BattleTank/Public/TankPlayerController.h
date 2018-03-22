@@ -20,4 +20,10 @@ public:
 	
 	void BeginPlay() override;
 
+	virtual void Tick(float DeltaTime) override;
+
+private:
+	//Start the tank moving barrel towards crosshair, for aiming
+	void AimTowardsCrosshair();
+
 };
