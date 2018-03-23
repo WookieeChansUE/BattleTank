@@ -2,6 +2,7 @@
 
 #include "TankAIController.h"
 #include "Tank.h"
+#include "Engine/World.h"
 
 
 void ATankAIController::BeginPlay()
@@ -16,6 +17,18 @@ void ATankAIController::BeginPlay()
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("AIController found player: %s"), *(PlayerTank->GetName()));
+	}
+}
+// Called every frame
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (GetPlayerTank())
+	{
+		//todo move towards player
+		//aim at player
+		GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+		//todo fire if ready
 	}
 }
 
