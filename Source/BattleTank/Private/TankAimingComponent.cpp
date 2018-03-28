@@ -7,7 +7,6 @@
 #include "TankBarrel.h"
 #include "GameFramework/Actor.h"
 #include "Engine/World.h"
-//#include "Components/StaticMeshComponent.h"
 
 
 // Sets default values for this component's properties
@@ -32,14 +31,17 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
 	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity
-		(
+	(
 		this,
 		OutLaunchVelocity,
 		StartLocation,
 		HitLocation,
 		LaunchSpeed,
+		false,
+		0,
+		0,
 		ESuggestProjVelocityTraceOption::DoNotTrace
-		);
+	);
 	if (bHaveAimSolution)
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
