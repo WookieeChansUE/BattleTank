@@ -22,7 +22,7 @@ public:
 
 private:
 	UPROPERTY(EditAnywhere, Category = BarrelSetup)
-	float MaxDegreesPerSecond = 20;
+	float MaxDegreesPerSecond = 5;
 	
 	UPROPERTY(EditAnywhere, Category = BarrelSetup)
 	float MaxElevationDegrees = 40;
