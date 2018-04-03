@@ -3,6 +3,7 @@
 #include "TankAIController.h"
 #include "Tank.h"
 #include "Engine/World.h"
+#include "Classes/AIController.h"
 
 
 void ATankAIController::BeginPlay()
@@ -20,7 +21,9 @@ void ATankAIController::Tick(float DeltaTime)
 
 	if (PlayerTank)
 	{
-		//todo move towards player
+		//move towards player
+		MoveToActor(PlayerTank, AcceptanceRadius); //todo check radius is in cm
+
 		//aim at player
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
 		
