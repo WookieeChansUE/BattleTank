@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Curiouser & Curiouser Games
 
 #pragma once
 
@@ -7,7 +7,6 @@
 #include "Tank.generated.h"//new includes above here
 
 //Forward Declarations
-class UTankTurret;
 class UTankBarrel;
 class UTankAimingComponent;
 class AProjectile;
@@ -19,21 +18,12 @@ class BATTLETANK_API ATank : public APawn
 	GENERATED_BODY()
 
 public:
-	UFUNCTION(Blueprintcallable, Category = Setup)
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-
-	UFUNCTION(Blueprintcallable, Category = Setup)
-	void SetTurretReference(UTankTurret * TurretToSet);
-	
 	void AimAt(FVector HitLocation);
 
 	UFUNCTION(Blueprintcallable)
 	void Fire();
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-	
+protected:	
 	UPROPERTY(BluePrintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
 	
@@ -45,9 +35,6 @@ protected:
 private:	
 	// Sets default values for this pawn's properties
 	ATank();
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;
@@ -58,9 +45,8 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float ReloadTimeInSeconds = 3;
 	
-	//Local barrel ref for spawning projectile
-	UTankBarrel* Barrel = nullptr;
-	
+	// Local barrel reference for spawning projectile
+	UTankBarrel* Barrel = nullptr; // TODO Remove
 
 	double LastFireTime = 0;
 };
