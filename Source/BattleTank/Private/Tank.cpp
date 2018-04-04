@@ -24,6 +24,8 @@ void ATank::BeginPlay()
 {
 	//NEEDED FOR BP BEGIN PLAY TO RUN!!!
 	Super::BeginPlay();
+	auto TankName = GetName();
+	UE_LOG(LogTemp, Warning, TEXT("%s Dildo: Tank C++ Begin play"), *TankName)
 }
 
 void ATank::AimAt(FVector HitLocation)
