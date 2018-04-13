@@ -8,7 +8,6 @@
 
 //Forward Declarations
 class UTankBarrel;
-class UTankAimingComponent;
 class AProjectile;
 
 UCLASS()
@@ -17,16 +16,8 @@ class BATTLETANK_API ATank : public APawn
 	GENERATED_BODY()
 
 public:
-	void AimAt(FVector HitLocation);
-
 	UFUNCTION(Blueprintcallable)
-	void Fire();
-
-protected:	
-	UPROPERTY(BluePrintReadOnly)
-	UTankAimingComponent* TankAimingComponent = nullptr;
-
-	
+	void Fire();	
 
 private:	
 	// Sets default values for this pawn's properties
@@ -37,9 +28,9 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
-	// todo remove once firing is moved to aiming component
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
-	float LaunchSpeed = 4000.0; 
+	// TODO remove once firing is moved to aiming component
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	float LaunchSpeed = 4000;
 
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float ReloadTimeInSeconds = 3;

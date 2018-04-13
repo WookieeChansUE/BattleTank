@@ -1,7 +1,6 @@
 // Copyright Curiouser & Curiouser Games
 
 #include "Tank.h"
-#include "TankAimingComponent.h"
 #include "TankBarrel.h"
 #include "Projectile.h"
 #include "Engine/World.h"
@@ -19,13 +18,6 @@ void ATank::BeginPlay()
 {
 	//NEEDED FOR BP BEGIN PLAY TO RUN!!!
 	Super::BeginPlay();
-	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
-}
-
-void ATank::AimAt(FVector HitLocation)
-{
-	if (!ensure(TankAimingComponent)) { return; }
-	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
 void ATank::Fire()
