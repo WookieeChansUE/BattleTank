@@ -38,7 +38,7 @@ public:
 
 	EFiringState GetFiringState() const;
 
-	UFUNCTION(Blueprintcallable, Category = Firing)
+	UFUNCTION(BlueprintCallable, Category = Firing)
 	int GetRoundsLeft() const;
 
 protected:
