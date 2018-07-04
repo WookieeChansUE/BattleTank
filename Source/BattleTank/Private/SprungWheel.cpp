@@ -1,9 +1,10 @@
 // Copyright Curiouser & Curiouser Games
 
 #include "SprungWheel.h"
-
 #include "PhysicsEngine/PhysicsConstraintComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/SceneComponent.h"
+#include "GameFramework/Actor.h"
 #include "Engine/World.h"
 
 
@@ -31,7 +32,7 @@ void ASprungWheel::BeginPlay()
 
 	if (GetAttachParentActor())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Not Null"));
+		UE_LOG(LogTemp, Warning, TEXT("Not Null: %s"), *GetAttachParentActor()->GetName());
 	}
 	else
 	{
