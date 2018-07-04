@@ -26,7 +26,7 @@ public:
 
 private:
 	// Config
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AActor> SpawnClass;
 	
 };
