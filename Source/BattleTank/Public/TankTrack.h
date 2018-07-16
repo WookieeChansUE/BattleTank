@@ -26,17 +26,11 @@ public:
 
 private:
 	UTankTrack(); 
-	
-	virtual void BeginPlay() override;
 
-	void ApplySidewaysForce();
+	TArray<class ASprungWheel*> GetWheels() const;
+		
+	void DriveTrack(float CurrentThrottle);
 
-	UFUNCTION()
-	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
-
-	void DriveTrack();
-
-	float CurrentThrottle = 0;
 };
 
  
